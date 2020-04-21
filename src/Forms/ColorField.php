@@ -39,7 +39,7 @@ class ColorField extends TextField
     {
         return 'colorfield text';
     }
-    
+
     /**
      * Answers a unique ID for the wrapper element.
      *
@@ -49,9 +49,9 @@ class ColorField extends TextField
     {
         return sprintf('%s_Wrapper', $this->ID());
     }
-    
+
     /**
-     * Answers an string of class names for the wrapper element.
+     * Answers a string of class names for the wrapper element.
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class ColorField extends TextField
     {
         return implode(' ', $this->getWrapperClassNames());
     }
-    
+
     /**
      * Answers an array of class names for the wrapper element.
      *
@@ -68,14 +68,14 @@ class ColorField extends TextField
     public function getWrapperClassNames()
     {
         $classes = ['wrapper', 'input-group', 'colorpicker-component'];
-        
+
         $this->extend('updateWrapperClassNames', $classes);
-        
+
         return $classes;
     }
-    
+
     /**
-     * Answers an string of class names for the addon element.
+     * Answers a string of class names for the addon element.
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class ColorField extends TextField
     {
         return implode(' ', $this->getAddonClassNames());
     }
-    
+
     /**
      * Answers an array of class names for the addon element.
      *
@@ -91,10 +91,36 @@ class ColorField extends TextField
      */
     public function getAddonClassNames()
     {
-        $classes = ['input-group-addon'];
-        
+        $classes = ['input-group-text', 'colorpicker-input-addon'];
+
         $this->extend('updateAddonClassNames', $classes);
-        
+
         return $classes;
+    }
+
+
+    /**
+     * Answers a string of data attributes for the wrapper element.
+     *
+     * @return string
+     */
+    public function getWrapperDataAttr()
+    {
+        return implode(' ', $this->getWrapperDataAttributes());
+    }
+
+
+    /**
+     * Answers an array of data attributes for the wrapper element.
+     *
+     * @return array
+     */
+    public function getWrapperDataAttributes()
+    {
+        $attrs = [];
+
+        $this->extend('updateWrapperDataAttributes', $attrs);
+
+        return $attrs;
     }
 }
